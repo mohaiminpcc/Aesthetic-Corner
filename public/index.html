@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Original paintings</title>
+  <meta name="description" content="Original handmade paintings. Choose a painting, see its size and materials, and buy with bKash.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#gallery" data-i18n="skip">Skip to the paintings</a>
+
+  <header class="top">
+    <a class="brand" href="#top" id="brandName"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#gallery" data-i18n="navGallery">Paintings</a>
+      <a href="#how" data-i18n="navHow">How to buy</a>
+      <a href="#decor" data-i18n="navDeco">Decoration ideas</a>
+      <a href="#about" data-i18n="navAbout">The artist</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+    </nav>
+    <div class="top-actions">
+      <button id="langBtn" class="lang" type="button"></button>
+      <a id="waTop" class="btn btn-wa" target="_blank" rel="noopener" data-i18n="whatsapp">WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-text">
+        <h1 id="heroTitle"></h1>
+        <p class="lead" data-i18n="heroLead">Original paintings, made by hand. Choose one, read its details, and pay with bKash.</p>
+        <a class="btn btn-primary" href="#gallery" data-i18n="viewGallery">See the paintings</a>
+      </div>
+      <div class="hero-art" id="featured" aria-live="polite"></div>
+    </section>
+
+    <section id="gallery" class="section" aria-labelledby="galleryTitle">
+      <div class="section-head">
+        <h2 id="galleryTitle" data-i18n="galleryTitle">Paintings</h2>
+        <div class="filters" role="group" aria-label="Filter">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true" data-i18n="fAll">All</button>
+          <button type="button" class="chip" data-filter="available" aria-pressed="false" data-i18n="fAvailable">Available</button>
+          <button type="button" class="chip" data-filter="sold" aria-pressed="false" data-i18n="fSold">Sold</button>
+        </div>
+      </div>
+      <div class="wall" id="wall"></div>
+      <p class="empty" id="empty" hidden data-i18n="empty">No paintings here yet. Check back soon.</p>
+    </section>
+
+    <section id="how" class="section narrow" aria-labelledby="howTitle">
+      <h2 id="howTitle" data-i18n="howTitle">How to buy</h2>
+      <ol class="steps">
+        <li><strong data-i18n="s1t">Pick a painting</strong><span data-i18n="s1d">Open any painting to see its size, materials, colours and a short description.</span></li>
+        <li><strong data-i18n="s2t">Send the payment on bKash</strong><span data-i18n="s2d">Send the exact price to our bKash number. Write the painting name as the reference.</span></li>
+        <li><strong data-i18n="s3t">Enter your TrxID</strong><span data-i18n="s3d">Fill in your delivery details and the TrxID from your bKash message.</span></li>
+        <li><strong data-i18n="s4t">We confirm and deliver</strong><span data-i18n="s4d">We check the payment, then contact you on WhatsApp or phone to arrange delivery.</span></li>
+      </ol>
+    </section>
+
+    <section id="decor" class="section" aria-labelledby="decorTitle">
+      <h2 id="decorTitle" data-i18n="decoTitle">Paintings for your space</h2>
+      <p class="lead-sm" data-i18n="decoLead">Not sure which painting suits your wall? We take orders for decoration ideas for homes, offices and businesses. Tell us about the space and we suggest paintings that fit it.</p>
+      <div class="decor-grid">
+        <article class="decor-item">
+          <h3 data-i18n="decoHome">Home</h3>
+          <p data-i18n="decoHomeD">Living room, bedroom, dining area or entrance. We help you choose paintings that suit your colours and furniture.</p>
+          <a class="btn btn-wa" data-deco="decoMsgHome" target="_blank" rel="noopener" data-i18n="decoAsk">Ask on WhatsApp</a>
+        </article>
+        <article class="decor-item">
+          <h3 data-i18n="decoOffice">Office</h3>
+          <p data-i18n="decoOfficeD">Reception, meeting rooms and workspaces. Paintings that make the room feel welcoming and professional.</p>
+          <a class="btn btn-wa" data-deco="decoMsgOffice" target="_blank" rel="noopener" data-i18n="decoAsk">Ask on WhatsApp</a>
+        </article>
+        <article class="decor-item">
+          <h3 data-i18n="decoBiz">Business</h3>
+          <p data-i18n="decoBizD">Cafes, clinics, shops, hotels and showrooms. Art that gives your customers something to remember.</p>
+          <a class="btn btn-wa" data-deco="decoMsgBiz" target="_blank" rel="noopener" data-i18n="decoAsk">Ask on WhatsApp</a>
+        </article>
+      </div>
+      <p class="decor-how" data-i18n="decoHow">Send us a few photos of the wall, its size, and the colours you like. We reply with ideas.</p>
+      <p class="decor-mail"><span data-i18n="decoMailLine">Prefer email? Send your photos to</span> <a id="decoMail"></a></p>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="aboutTitle">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 id="aboutTitle" data-i18n="aboutTitle">About the artist</h2>
+          <p class="artist-name" data-i18n="artistName">Asma Binte Nurul Huda</p>
+          <p data-i18n="aboutP1">Asma Binte Nurul Huda is a professional artist with 12 years of experience in painting. She works in two styles: photo-realistic paintings that look like photographs, and abstract paintings built from colour and shape.</p>
+          <p data-i18n="aboutP2">She paints in acrylic and watercolour. Each painting is handmade, so each piece is the only one of its kind.</p>
+          <p data-i18n="aboutP3">To see more photos of a painting, or to talk about colours and size, message us on WhatsApp.</p>
+        </div>
+        <div class="plaque">
+          <dl class="specs">
+            <div><dt data-i18n="aLabelName">Artist</dt><dd data-i18n="artistName">Asma Binte Nurul Huda</dd></div>
+            <div><dt data-i18n="aLabelExp">Experience</dt><dd data-i18n="aValExp">12 years</dd></div>
+            <div><dt data-i18n="aLabelStyle">Styles</dt><dd data-i18n="aValStyle">Photo-realistic and abstract</dd></div>
+            <div><dt data-i18n="aLabelMedium">Mediums</dt><dd data-i18n="aValMedium">Acrylic and watercolour</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section narrow" aria-labelledby="contactTitle">
+      <h2 id="contactTitle" data-i18n="contactTitle">Talk to us</h2>
+      <p data-i18n="contactLead">Questions about a painting, delivery or payment? Message us any time.</p>
+      <div class="contact-row">
+        <a id="waContact" class="btn btn-wa" target="_blank" rel="noopener" data-i18n="whatsapp">WhatsApp</a>
+        <a id="mailContact" class="btn btn-ghost" data-i18n="emailUs">Email us</a>
+      </div>
+      <dl class="specs contact-specs">
+        <div><dt data-i18n="whatsapp">WhatsApp</dt><dd><a id="waNum" target="_blank" rel="noopener"></a></dd></div>
+        <div><dt data-i18n="cEmail">Email</dt><dd><a id="mailNum"></a></dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span id="footName"></span>
+    <span id="footViews"></span>
+    <span id="footMail"></span>
+  </footer>
+
+  <dialog id="dlg" aria-labelledby="dlgTitle">
+    <button type="button" class="close" id="dlgClose" aria-label="Close">&times;</button>
+    <div id="dlgBody"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

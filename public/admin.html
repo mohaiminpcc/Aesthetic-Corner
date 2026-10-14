@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Studio admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+  <header class="top">
+    <a class="brand" href="/admin.html">Studio admin</a>
+    <div class="top-actions">
+      <a class="btn btn-ghost" href="/" target="_blank" rel="noopener">View site</a>
+      <button class="btn btn-ghost" id="logoutBtn" type="button" hidden>Log out</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Login -->
+    <section id="loginView" hidden>
+      <h1>Log in</h1>
+      <form id="loginForm" class="stack" novalidate>
+        <div class="field"><label for="username">Username</label><input id="username" autocomplete="username" required></div>
+        <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div>
+        <p class="error" id="loginError" role="alert" hidden></p>
+        <button class="btn btn-primary" type="submit">Log in</button>
+      </form>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="appView" hidden>
+      <div class="tabs" role="tablist">
+        <button class="chip" role="tab" id="tabP" aria-pressed="true" type="button">Paintings</button>
+        <button class="chip" role="tab" id="tabO" aria-pressed="false" type="button">Orders <span id="orderBadge"></span></button>
+      </div>
+
+      <div id="paintingsPane">
+        <div class="statline" aria-label="Views">
+          <div><strong id="stSite">0</strong><span>Total site views</span></div>
+          <div><strong id="stPaint">0</strong><span>Painting views</span></div>
+        </div>
+        <p class="note">Each visitor counts once per visit. Your own visits are not counted while you are logged in.</p>
+        <h1 id="formTitle">Add a painting</h1>
+        <form id="paintingForm" class="stack card" novalidate>
+          <div class="field">
+            <label for="image" id="imageLabel">Photo (JPG, PNG or WEBP, up to 8 MB)</label>
+            <input id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp">
+            <img id="preview" class="preview" alt="" hidden>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="titleEn">Title (English)</label><input id="titleEn" name="titleEn" maxlength="120"></div>
+            <div class="field"><label for="titleBn">Title (বাংলা)</label><input id="titleBn" name="titleBn" maxlength="120"></div>
+            <div class="field"><label for="price">Price (৳)</label><input id="price" name="price" type="number" min="0" step="1" inputmode="numeric"></div>
+            <div class="field"><label for="size">Size</label><input id="size" name="size" placeholder="24 x 36 inch" maxlength="80"></div>
+            <div class="field"><label for="typeEn">Type (English)</label><input id="typeEn" name="typeEn" placeholder="Oil on canvas" maxlength="80"></div>
+            <div class="field"><label for="typeBn">Type (বাংলা)</label><input id="typeBn" name="typeBn" placeholder="ক্যানভাসে তেলরং" maxlength="80"></div>
+            <div class="field"><label for="materialsEn">Materials (English)</label><input id="materialsEn" name="materialsEn" placeholder="Oil paint, stretched cotton canvas" maxlength="200"></div>
+            <div class="field"><label for="materialsBn">Materials (বাংলা)</label><input id="materialsBn" name="materialsBn" maxlength="200"></div>
+            <div class="field"><label for="colourEn">Colours (English)</label><input id="colourEn" name="colourEn" placeholder="Indigo, ochre, white" maxlength="120"></div>
+            <div class="field"><label for="colourBn">Colours (বাংলা)</label><input id="colourBn" name="colourBn" maxlength="120"></div>
+            <div class="field"><label for="year">Year</label><input id="year" name="year" maxlength="10" inputmode="numeric"></div>
+            <div class="field" id="statusField" hidden>
+              <label for="status">Status</label>
+              <select id="status" name="status"><option value="available">Available</option><option value="reserved">Payment being checked</option><option value="sold">Sold</option></select>
+            </div>
+          </div>
+          <div class="field"><label for="descriptionEn">Short description (English)</label><textarea id="descriptionEn" name="descriptionEn" maxlength="1500"></textarea></div>
+          <div class="field"><label for="descriptionBn">Short description (বাংলা)</label><textarea id="descriptionBn" name="descriptionBn" maxlength="1500"></textarea></div>
+          <p class="note">Fill in at least one title. If you leave a Bangla or English field empty, the site shows the other language instead.</p>
+          <p class="error" id="formError" role="alert" hidden></p>
+          <div class="actions">
+            <button class="btn btn-primary" id="saveBtn" type="submit">Upload painting</button>
+            <button class="btn btn-ghost" id="cancelEdit" type="button" hidden>Cancel editing</button>
+          </div>
+        </form>
+
+        <h2>Your paintings</h2>
+        <div id="list" class="list"></div>
+        <p class="note" id="noPaintings" hidden>No paintings yet. Add your first one above.</p>
+      </div>
+
+      <div id="ordersPane" hidden>
+        <h1>Orders</h1>
+        <p class="note">Check the TrxID in your bKash account before you confirm. Confirming marks the painting as sold. Rejecting makes it available again.</p>
+        <div id="orders" class="list"></div>
+        <p class="note" id="noOrders" hidden>No orders yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
